@@ -692,51 +692,6 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://",
 	PremiumOnly = false
 })
- function BringTree()
-  tbs = game.Workspace.LogModels.ChildAdded:Connect(function(k)
-    if k:WaitForChild("Owner") and k.Owner.Value == game.Players.LocalPlayer then
-      if k:WaitForChild("TreeClass") and k.TreeClass.Value == Tree then
-        if k:WaitForChild("WoodSection") then
-          for i = 1,50 do
-            k.WoodSection.CFrame = old
-                    game.ReplicatedStorage.Interaction.ClientIsDragging:FireServer(k)
-                    game.ReplicatedStorage.Interaction.ClientIsDragging:FireServer(k)
-                    k.WoodSection.CFrame = old
-                    wait()
-          end;
-        end;
-      end;
-    end;
-    td = true
-  end)
-  for i = 1,Amount do
-    for i,v in next,game.Workspace:GetChildren() do
-      if v.Name == "TreeRegion" then
-        for i,b in next,v:GetChildren() do
-          if b.Name == "Model" then
-            if b:FindFirstChild("Owner") and b.Owner.Value == nil then
-              if b:FindFirstChild("TreeClass") and b.TreeClass.Value == Tree then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(b:FindFirstChild("WoodSection").CFrame.p)
-                found = b
-              end;
-            end;
-          end;
-        end;
-      end;
-    end;
-    treeadded = game.Workspace.LogModels.ChildAdded:Connect(function(added)
-      if added:FindFirstChild("Owner") and added.Owner.Value == game.Players.LocalPlayer then 
-        cut = added
-      end;
-    end)
-    repeat wait(0.1)
-    game:GetService("ReplicatedStorage").Interaction.RemoteProxy:FireServer(found.CutEvent,{["tool"] = game.Players.LocalPlayer.Character:FindFirstChild("Tool"),["faceVector"] = Vector3.new(1, 0, 0),["height"] = 0.32,["sectionId"] = 1,["hitPoints"] = HitPoints[game.Players.LocalPlayer.Character:FindFirstChild("Tool").ToolName.Value],["cooldown"] = 0.25837870788574,["cuttingClass"] = "Axe"})
-    until td
-    tb = false
-  end;
-  tbs:Disconnect()
-  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = old
-  end;
 
 Tab:AddToggle({
 	Name = "Wood Esp (work in progress)",
