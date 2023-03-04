@@ -1,4 +1,297 @@
-do local scriptver="Admin";local OrionLib=loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))();local Window=OrionLib:MakeWindow({Name="Ripp3rs-hub ┃ "   .. scriptver ,HidePremium=true,SaveConfig=true,ConfigFolder="Ripp3r",IntroText="Ripp3rs-Hub",IntroIcon="https://i.e-z.host/nbo558hv.png"});local Tab=Window:MakeTab({Name="Player",Icon="rbxassetid://",PremiumOnly=false});local Section=Tab:AddSection({Name="Player"});Tab:AddSlider({Name="Walkspeed",Min=16,Max=500,Default=16,Color=Color3.fromRGB(0,0,0),Increment=1,ValueName="",Callback=function(new)_G.WS=new;local Humanoid=game:GetService("Players").LocalPlayer.Character.Humanoid;Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()Humanoid.WalkSpeed=_G.WS;end);Humanoid.WalkSpeed=_G.WS;end});Tab:AddSlider({Name="Jumppower",Min=50,Max=500,Default=50,Color=Color3.fromRGB(0,0,0),Increment=1,ValueName="",Callback=function(value)_G.JP=value;local Humanoid=game:GetService("Players").LocalPlayer.Character.Humanoid;Humanoid:GetPropertyChangedSignal("JumpPower"):Connect(function()Humanoid.JumpPower=_G.JP;end);Humanoid.JumpPower=_G.JP;end});toggleNoClip=function()local disableCollide;disableCollide=game:GetService("RunService").Stepped:connect(function()for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do if (noclipping==false) then disableCollide:Disconnect();return;end if v:IsA("BasePart") then v.CanCollide=false;end end end);end;Tab:AddToggle({Name="Noclip",Default=false,Callback=function(value)if (value==true) then noclipping=true;toggleNoClip();elseif (value==false) then noclipping=false;toggleNoClip();end end});Tab:AddToggle({Name="Fly",Default=true,Callback=function(Value)local Settings={Speed=5,SprintSpeed=30,ToggleKey=Enum.KeyCode.P,SprintKey=Enum.KeyCode.LeftControl,ForwardKey=Enum.KeyCode.W,LeftKey=Enum.KeyCode.A,BackwardKey=Enum.KeyCode.S,RightKey=Enum.KeyCode.D,UpKey=Enum.KeyCode.E,DownKey=Enum.KeyCode.Q};local Screen=Instance.new("ScreenGui",game.CoreGui);local Distance=Instance.new("TextLabel",Screen);Distance.BackgroundTransparency=1;Distance.Size=UDim2.new(0,10,0,10);Distance.ZIndex=2;Distance.Text="0";Distance.TextStrokeTransparency=0.5;Distance.TextSize=20;Distance.TextStrokeColor3=Color3.fromRGB(33,33,33);Distance.Font=Enum.Font.Gotham;Distance.TextColor3=Color3.new(1,1,1);Distance.TextXAlignment=Enum.TextXAlignment.Left;Distance.TextYAlignment=Enum.TextYAlignment.Top;local Mouse=game.Players.LocalPlayer:GetMouse();local Direction=Vector3.new(0,0,0);local InterpolatedDir=Direction;local Tilt=0;local InterpolatedTilt=Tilt;local RunService=game:GetService("RunService");local Toggled=false;local Sprinting=false;local CameraPos=game.Workspace.CurrentCamera.CFrame.Position;pcall(function()game.Players.LocalPlayer.DevCameraOcclusionMode=Enum.DevCameraOcclusionMode.Invisicam;end);Lerp=function(a,b,t)return a + ((b-a) * t) ;end;local LastPos=nil;KeyHandler=function(actionName,userInputState)if (true and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then if ((actionName=="Toggle") and (userInputState==Enum.UserInputState.Begin)) then Toggled= not Toggled;if Toggled then LastPos=game.Players.LocalPlayer.Character.HumanoidRootPart.Position;game.Players.LocalPlayer.Character.Humanoid.PlatformStand=true;else LastPos=nil;game.Players.LocalPlayer.Character.Humanoid.PlatformStand=false;end elseif (actionName=="Forward") then Tilt=((userInputState==Enum.UserInputState.Begin) and  -20) or 0 ;Direction=Vector3.new(Direction.x,Direction.y,((userInputState==Enum.UserInputState.Begin) and  -1) or 0 );elseif (actionName=="Left") then Direction=Vector3.new(((userInputState==Enum.UserInputState.Begin) and  -1) or 0 ,Direction.y,Direction.z);elseif (actionName=="Backward") then Tilt=((userInputState==Enum.UserInputState.Begin) and 20) or 0 ;Direction=Vector3.new(Direction.x,Direction.y,((userInputState==Enum.UserInputState.Begin) and 1) or 0 );elseif (actionName=="Right") then Direction=Vector3.new(((userInputState==Enum.UserInputState.Begin) and 1) or 0 ,Direction.y,Direction.z);elseif (actionName=="Up") then Direction=Vector3.new(Direction.x,((userInputState==Enum.UserInputState.Begin) and 1) or 0 ,Direction.z);elseif (actionName=="Down") then Direction=Vector3.new(Direction.x,((userInputState==Enum.UserInputState.Begin) and  -1) or 0 ,Direction.z);elseif (actionName=="Sprint") then Sprinting=userInputState==Enum.UserInputState.Begin ;end end end;game:GetService("UserInputService").InputBegan:connect(function(inputObject,gameProcessedEvent)if (inputObject.KeyCode==Settings.ToggleKey) then KeyHandler("Toggle",Enum.UserInputState.Begin,inputObject);elseif (inputObject.KeyCode==Settings.ForwardKey) then KeyHandler("Forward",Enum.UserInputState.Begin,inputObject);elseif (inputObject.KeyCode==Settings.LeftKey) then KeyHandler("Left",Enum.UserInputState.Begin,inputObject);elseif (inputObject.KeyCode==Settings.BackwardKey) then KeyHandler("Backward",Enum.UserInputState.Begin,inputObject);elseif (inputObject.KeyCode==Settings.RightKey) then KeyHandler("Right",Enum.UserInputState.Begin,inputObject);elseif (inputObject.KeyCode==Settings.UpKey) then KeyHandler("Up",Enum.UserInputState.Begin,inputObject);elseif (inputObject.KeyCode==Settings.DownKey) then KeyHandler("Down",Enum.UserInputState.Begin,inputObject);elseif (inputObject.KeyCode==Settings.SprintKey) then KeyHandler("Sprint",Enum.UserInputState.Begin,inputObject);end end);game:GetService("UserInputService").InputEnded:connect(function(inputObject,gameProcessedEvent)if (inputObject.KeyCode==Settings.ToggleKey) then KeyHandler("Toggle",Enum.UserInputState.End,inputObject);elseif (inputObject.KeyCode==Settings.ForwardKey) then KeyHandler("Forward",Enum.UserInputState.End,inputObject);elseif (inputObject.KeyCode==Settings.LeftKey) then KeyHandler("Left",Enum.UserInputState.End,inputObject);elseif (inputObject.KeyCode==Settings.BackwardKey) then KeyHandler("Backward",Enum.UserInputState.End,inputObject);elseif (inputObject.KeyCode==Settings.RightKey) then KeyHandler("Right",Enum.UserInputState.End,inputObject);elseif (inputObject.KeyCode==Settings.UpKey) then KeyHandler("Up",Enum.UserInputState.End,inputObject);elseif (inputObject.KeyCode==Settings.DownKey) then KeyHandler("Down",Enum.UserInputState.End,inputObject);elseif (inputObject.KeyCode==Settings.SprintKey) then KeyHandler("Sprint",Enum.UserInputState.End,inputObject);end end);RunService.RenderStepped:Connect(function()if (Toggled and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")) then for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do if v:IsA("BasePart") then v.Velocity=Vector3.new(0,0,0);end end local RootPart=game.Players.LocalPlayer.Character.HumanoidRootPart;if LastPos then Distance.Text=math.floor((LastPos-RootPart.Position).Magnitude + 0.5 );if ((LastPos-RootPart.Position).Magnitude>=350) then Distance.TextColor3=Color3.new(1,0,0);else Distance.TextColor3=Color3.new(1,1,1);end else Distance.TextColor3=Color3.new(1,1,1);Distance.Text=0;end InterpolatedDir=InterpolatedDir:Lerp(Direction * ((Sprinting and Settings.SprintSpeed) or Settings.Speed) ,0.2);InterpolatedTilt=Lerp(InterpolatedTilt,Tilt * ((Sprinting and 2) or 1) ,((Tilt==0) and 0.2) or 0.1 );RootPart.CFrame=RootPart.CFrame:Lerp(CFrame.new(RootPart.Position,RootPart.Position + Mouse.UnitRay.Direction ) * CFrame.Angles(0,math.rad(0),0) * CFrame.new(InterpolatedDir) * CFrame.Angles(math.rad(InterpolatedTilt),0,0) ,0.2);else Distance.TextColor3=Color3.new(1,1,1);Distance.Text=0;end end);end});Tab:AddSlider({Name="FOV",Min=10,Max=140,Default=70,Color=Color3.fromRGB(0,0,0),Increment=1,ValueName="",Callback=function(new)game.Workspace.Camera.FieldOfView=new;end});Tab:AddButton({Name="Reset FOV",Callback=function()game.Workspace.Camera.FieldOfView=70;end});local Tab=Window:MakeTab({Name="World",Icon="rbxassetid://",PremiumOnly=false});local Section=Tab:AddSection({Name="Sky options"});loadstring('[[
+local scriptver = "Admin"
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Ripp3rs-hub ┃ ".. scriptver, HidePremium = true, SaveConfig = true, ConfigFolder = "Ripp3r", IntroText = "Ripp3rs-Hub", IntroIcon = "https://i.e-z.host/nbo558hv.png"})
+
+local Tab = Window:MakeTab({
+    Name = "Player",
+    Icon = "rbxassetid://",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+    Name = "Player"
+})
+
+Tab:AddSlider({
+    Name = "Walkspeed",
+    Min = 16,
+    Max = 500,
+    Default = 16,
+    Color = Color3.fromRGB(0,0,0),
+    Increment = 1,
+    ValueName = "",
+    Callback = function(new)
+        _G.WS = new;
+    local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+    Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+        Humanoid.WalkSpeed = _G.WS;
+    end)
+    Humanoid.WalkSpeed = _G.WS;
+    end    
+})
+
+
+Tab:AddSlider({
+    Name = "Jumppower",
+    Min = 50,
+    Max = 500,
+    Default = 50,
+    Color = Color3.fromRGB(0,0,0),
+    Increment = 1,
+    ValueName = "",
+    Callback = function(value)
+        _G.JP = value
+        local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
+        Humanoid:GetPropertyChangedSignal("JumpPower"):Connect(function()
+        Humanoid.JumpPower = _G.JP
+        end)
+        Humanoid.JumpPower = _G.JP
+    end    
+})
+
+
+
+
+function toggleNoClip()
+    local disableCollide 
+    disableCollide = game:GetService("RunService").Stepped:connect(function()
+    for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+    if noclipping == false then
+    disableCollide:Disconnect()
+    return
+    end
+    if v:IsA("BasePart") then
+    v.CanCollide = false
+    end
+    end
+    end)
+    end
+
+
+
+Tab:AddToggle({
+    Name = "Noclip",
+    Default = false,
+    Callback = function(value)
+        if value == true then
+            noclipping = true
+            toggleNoClip()
+            elseif value == false then
+            noclipping = false
+            toggleNoClip()
+            end
+end})
+
+
+Tab:AddToggle({
+	Name = "Fly",
+	Default = true,
+	Callback = function(Value)
+		local Settings = {
+	
+            Speed = 5,
+            SprintSpeed = 30,
+            ToggleKey = Enum.KeyCode.P,
+            SprintKey = Enum.KeyCode.LeftControl,
+            
+            ForwardKey = Enum.KeyCode.W,
+            LeftKey = Enum.KeyCode.A,
+            BackwardKey = Enum.KeyCode.S,
+            RightKey = Enum.KeyCode.D,
+            UpKey = Enum.KeyCode.E,
+            DownKey = Enum.KeyCode.Q,
+            
+        }
+        
+        local Screen = Instance.new("ScreenGui",game.CoreGui)
+        local Distance = Instance.new("TextLabel",Screen)
+        Distance.BackgroundTransparency = 1
+        Distance.Size = UDim2.new(0,10,0,10)
+        Distance.ZIndex = 2
+        Distance.Text = "0"
+        Distance.TextStrokeTransparency = .5
+        Distance.TextSize = 20
+        Distance.TextStrokeColor3 = Color3.fromRGB(33, 33, 33)
+        Distance.Font = Enum.Font.Gotham
+        Distance.TextColor3 = Color3.new(1,1,1)
+        Distance.TextXAlignment = Enum.TextXAlignment.Left
+        Distance.TextYAlignment = Enum.TextYAlignment.Top
+        
+        
+        local Mouse = game.Players.LocalPlayer:GetMouse()
+        local Direction = Vector3.new(0,0,0)
+        local InterpolatedDir = Direction
+        local Tilt = 0
+        local InterpolatedTilt = Tilt
+        local RunService = game:GetService("RunService")
+        local Toggled = false
+        local Sprinting = false
+        local CameraPos = game.Workspace.CurrentCamera.CFrame.Position
+        
+        pcall(function()
+            game.Players.LocalPlayer.DevCameraOcclusionMode = Enum.DevCameraOcclusionMode.Invisicam	
+        end)
+        
+        function Lerp(a, b, t)
+            return a + (b - a) * t
+        end
+        
+        local LastPos = nil
+        
+        function KeyHandler(actionName, userInputState)
+            if true and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                if actionName == "Toggle" and userInputState == Enum.UserInputState.Begin then
+                    Toggled = not Toggled
+                    if Toggled then
+                        LastPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                        --game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+                        game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true 
+                    else
+                        LastPos = nil
+                        game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+                        --game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+                    end
+                elseif actionName == "Forward" then
+                    Tilt = userInputState == Enum.UserInputState.Begin and -20 or 0
+                    Direction = Vector3.new(Direction.x,Direction.y,userInputState == Enum.UserInputState.Begin and -1 or 0)
+                elseif actionName == "Left" then
+                    Direction = Vector3.new(userInputState == Enum.UserInputState.Begin and -1 or 0,Direction.y,Direction.z)
+                elseif actionName == "Backward" then
+                    Tilt = userInputState == Enum.UserInputState.Begin and 20 or 0
+                    Direction = Vector3.new(Direction.x,Direction.y,userInputState == Enum.UserInputState.Begin and 1 or 0)
+                elseif actionName == "Right" then
+                    Direction = Vector3.new(userInputState == Enum.UserInputState.Begin and 1 or 0,Direction.y,Direction.z)
+                elseif actionName == "Up" then
+                    Direction = Vector3.new(Direction.x,userInputState == Enum.UserInputState.Begin and 1 or 0,Direction.z)
+                elseif actionName == "Down" then
+                    Direction = Vector3.new(Direction.x,userInputState == Enum.UserInputState.Begin and -1 or 0,Direction.z)
+                elseif actionName == "Sprint" then
+                    Sprinting = userInputState == Enum.UserInputState.Begin
+                end
+            end
+        end
+        
+        
+        
+        game:GetService("UserInputService").InputBegan:connect(function(inputObject, gameProcessedEvent)
+            
+            if inputObject.KeyCode == Settings.ToggleKey then
+                KeyHandler("Toggle", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.ForwardKey then
+                KeyHandler("Forward", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.LeftKey then
+                KeyHandler("Left", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.BackwardKey then
+                KeyHandler("Backward", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.RightKey then
+                KeyHandler("Right", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.UpKey then	
+                KeyHandler("Up", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.DownKey then
+                KeyHandler("Down", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.SprintKey then
+                KeyHandler("Sprint", Enum.UserInputState.Begin, inputObject)
+            end
+            
+            
+        end)
+        
+        
+        game:GetService("UserInputService").InputEnded:connect(function(inputObject, gameProcessedEvent)
+            
+            if inputObject.KeyCode == Settings.ToggleKey then
+                KeyHandler("Toggle", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.ForwardKey then
+                KeyHandler("Forward", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.LeftKey then
+                KeyHandler("Left", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.BackwardKey then
+                KeyHandler("Backward", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.RightKey then
+                KeyHandler("Right", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.UpKey then	
+                KeyHandler("Up", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.DownKey then
+                KeyHandler("Down", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.SprintKey then
+                KeyHandler("Sprint", Enum.UserInputState.End, inputObject)
+            end
+            
+            
+        end)
+        
+        
+        RunService.RenderStepped:Connect(function()
+            if Toggled and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")  then
+                for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                    if v:IsA("BasePart") then
+                        v.Velocity = Vector3.new(0,0,0)
+                    end
+                end
+                local RootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+                if LastPos then
+                    Distance.Text = math.floor((LastPos-RootPart.Position).Magnitude+.5)
+                    if (LastPos-RootPart.Position).Magnitude >= 350 then
+                        Distance.TextColor3 = Color3.new(1,0,0)
+                    else
+                        Distance.TextColor3 = Color3.new(1,1,1)	
+                    end
+                else
+                    Distance.TextColor3 = Color3.new(1,1,1)
+                    Distance.Text = 0
+                end
+                InterpolatedDir = InterpolatedDir:Lerp((Direction * (Sprinting and Settings.SprintSpeed or Settings.Speed)),.2)
+                InterpolatedTilt = Lerp(InterpolatedTilt ,Tilt* (Sprinting and 2 or 1),Tilt == 0 and .2 or .1)
+                RootPart.CFrame = RootPart.CFrame:Lerp(CFrame.new(RootPart.Position,RootPart.Position + Mouse.UnitRay.Direction) * CFrame.Angles(0,math.rad(00),0) * CFrame.new(InterpolatedDir)  * CFrame.Angles(math.rad(InterpolatedTilt),0,0),.2)
+            else
+                Distance.TextColor3 = Color3.new(1,1,1)
+                Distance.Text = 0
+            end	
+        end)
+	end    
+})
+
+
+
+        
+
+
+Tab:AddSlider({
+    Name = "FOV",
+    Min = 10,
+    Max = 140,
+    Default = 70,
+    Color = Color3.fromRGB(0,0,0),
+    Increment = 1,
+    ValueName = "",
+    Callback = function(new)
+        game.Workspace.Camera.FieldOfView = new
+    end    
+})
+
+
+Tab:AddButton({
+	Name = "Reset FOV",
+	Callback = function()
+        game.Workspace.Camera.FieldOfView = 70
+  	end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "World",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Sky options"
+})
+
+
+
+loadstring([[
 function FreeLand()
     for a,b in pairs(workspace.Properties:GetChildren()) do 
         if b:FindFirstChild("Owner") and b:FindFirstChild("OriginSquare") and b.Owner.Value == nil then 
@@ -16,4 +309,500 @@ function FreeLand()
       end
       end
       end
-]]')();LoadSlot=function()local LoadSlot=game.ReplicatedStorage.LoadSaveRequests.ClientMayLoad:InvokeServer(player);if LoadSlot then game.ReplicatedStorage.LoadSaveRequests.RequestLoad:InvokeServer(Slot,player);end end;local Tab=Window:MakeTab({Name="Dupe",Icon="rbxassetid://",PremiumOnly=false});local Section=Tab:AddSection({Name="Information"});Tab:AddSlider({Name="Slot",Min=0,Max=6,Default=0,Color=Color3.fromRGB(0,0,0),Increment=1,ValueName="",Callback=function(new)Slot=tonumber(new);end});Tab:AddTextbox({Name="Time to tp to middle",Default="",TextDisappear=false,Callback=function(new)timetotp=tonumber(new);end});Tab:AddTextbox({Name="How much time you would like to take off",Default="",TextDisappear=false,Callback=function(new)timetoremove=tonumber(new);end});local Section=Tab:AddSection({Name="Maxland dupe auto"});local N=game:GetService("VirtualInputManager");Tab:AddButton({Name="Maxland dupe",Callback=function()print("Loading slot");N:SendKeyEvent(true,"Q",false,game);wait(0.1);N:SendKeyEvent(true,"T",false,game);wait(0.1);N:SendKeyEvent(true,"P",false,game);LoadSlot();end});local Section=Tab:AddSection({Name="Maxland dupe manual"});Tab:AddButton({Name="Start manual dupe",Callback=function()OrionLib:MakeNotification({Name="S409HUB",Content='Once on the loading screen press "Max land dupe step 2".',Image="rbxassetid://12576176007",Time=5});Loadslot();end});Tab:AddButton({Name="Manual dupe step 2",Callback=function()OrionLib:MakeNotification({Name="S409HUB",Content='Please now load your plot and press Max land dupe step 3".',Image="rbxassetid://12576176007",Time=5});FreeLand();end});Tab:AddButton({Name="Manual dupe step 3",Callback=function()wait(timetotp);loadstring(game:GetObjects("rbxassetid://2662507900")[1].Source)();end});local Section=Tab:AddSection({Name="Maxland dupe claim tools"});Tab:AddButton({Name="Select plot",Callback=function()loadstring(game:HttpGet("https://pastebin.com/raw/Wj49DUwL"))();end});Tab:AddButton({Name="Load on selected plot",Callback=function()for i,v in next,game:GetService("Workspace").Properties:GetChildren() do if v:FindFirstChild("OriginSquare") then if v.OriginSquare:FindFirstChild("Selection") then game:GetService("ReplicatedStorage").PropertyPurchasing.ClientPurchasedProperty:FireServer(v,v.OriginSquare.Position);game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=v.OriginSquare.CFrame + Vector3.new(0,2,0) ;break;end end end end});Tab:AddButton({Name="Save slot",Callback=function()local result=false;repeat wait(1);getgenv().block_save=false;local slot_id=game:GetService("Players")['LocalPlayer']['CurrentSaveSlot'].Value;result=game.ReplicatedStorage.LoadSaveRequests.RequestSave:InvokeServer(slot_id,game.Players.LocalPlayer);OrionLib:MakeNotification({Name="S409HUB",Content="Slot saved.",Image="rbxassetid://12576176007",Time=5});until result getgenv().block_save=true;end});OrionLib:Init();scr=getsenv(game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.PropertyPurchasingClient);local player=game.Players.LocalPlayer;local mouse=player:GetMouse();bind="q";mouse.KeyDown:connect(function(key)if (key==bind) then repeat wait();until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible wait(1);wait(0.9);for i,v in next,game:GetService("Workspace").Properties:GetChildren() do if (v:FindFirstChild("Owner") and (v.Owner.Value==nil)) then game:GetService("ReplicatedStorage").PropertyPurchasing.ClientPurchasedProperty:FireServer(v,v.OriginSquare.Position);game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=v.OriginSquare.CFrame + Vector3.new(0,2,0) ;break;end end end end);local player=game.Players.LocalPlayer;local mouse=player:GetMouse();bind="p";mouse.KeyDown:connect(function(key)if (key==bind) then repeat wait();until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible wait(1);wait(2);task.wait(timetotp-2 );loadstring(game:GetObjects("rbxassetid://2662507900")[1].Source)();end end);local player=game.Players.LocalPlayer;local mouse=player:GetMouse();bind="t";mouse.KeyDown:connect(function(key)if (key==bind) then repeat wait();until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible wait(0.3);scr.scrollSelection( -1);wait(0.1);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3);scr.selectionMade();end end);local Tab=Window:MakeTab({Name="Gui-Settings",Icon="rbxassetid://",PremiumOnly=false});Tab:AddColorpicker({Name="Colorpicker",Default=Color3.fromRGB(255,0,0),Callback=function(Value)print(Value);end});local Tab=Window:MakeTab({Name="Credits",Icon="rbxassetid://",PremiumOnly=false});Tab:AddLabel("Daddy Ripp3r#0001 - owner/coder");Tab:AddLabel("kermit the frog#6253 - cool guy");Tab:AddLabel("Applebox#0001 - Key System");local Tab=Window:MakeTab({Name="Wood",Icon="rbxassetid://",PremiumOnly=false});Tab:AddToggle({Name="Wood Esp (work in progress)",Default=false,Callback=function(Value)OrionLib:MakeNotification({Name="Wood Esp",Content="Enabled Wood Esp",Image="rbxassetid://4483345998",Time=5});local UIS=game:GetService("UserInputService");local Toggle=false;for i,v in pairs(workspace.PlayerModels:GetChildren()) do if ((v.Name=="Plank") and (v:FindFirstChild("Owner").OwnerString.Value==game.Players.LocalPlayer.Name)) then local WoodSection=v:FindFirstChild("WoodSection");for i=0,5 do local SurfaceGui=Instance.new("SurfaceGui");local Frame=Instance.new("Frame");SurfaceGui.Face=i;SurfaceGui.Enabled=false;SurfaceGui.Name=v.TreeClass.Value   .. i ;Frame.BorderSizePixel=0;Frame.Size=UDim2.new(1,0,1,0);Frame.BackgroundColor3=WoodSection.Color;SurfaceGui.AlwaysOnTop=true;SurfaceGui.LightInfluence=0;SurfaceGui.Parent=WoodSection;Frame.Parent=SurfaceGui;end end end UIS.InputBegan:Connect(function(input)if (input.KeyCode==Enum.KeyCode.X) then if (Toggle==false) then for i,v in pairs(workspace.PlayerModels:GetChildren()) do if (v.Name=="Plank") then for i=0,5 do local TreeClass=v.TreeClass.Value;if v:FindFirstChild("WoodSection")[TreeClass   .. i ] then v.WoodSection[TreeClass   .. i ].Enabled=true;end end end end Toggle=true;else for i,v in pairs(workspace.PlayerModels:GetChildren()) do if (v.Name=="Plank") then for i=0,5 do local TreeClass=v.TreeClass.Value;if v:FindFirstChild("WoodSection")[TreeClass   .. i ] then v.WoodSection[TreeClass   .. i ].Enabled=false;end end end end Toggle=false;end end end);end});local vu=game:GetService("VirtualUser");game:GetService("Players").LocalPlayer.Idled:connect(function()vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame);wait(1);vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame);end); end
+]])();
+
+
+function LoadSlot()
+    local LoadSlot = game.ReplicatedStorage.LoadSaveRequests.ClientMayLoad:InvokeServer(player)
+        if LoadSlot then
+            game.ReplicatedStorage.LoadSaveRequests.RequestLoad:InvokeServer(Slot, player)
+        end
+    end
+    
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Dupe",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Information"
+})
+
+
+Tab:AddSlider({
+	Name = "Slot",
+	Min = 0,
+	Max = 6,
+	Default = 0,
+	Color = Color3.fromRGB(0,0,0),
+	Increment = 1,
+	ValueName = "",
+	Callback = function(new)
+		Slot = tonumber(new)
+	end    
+})
+
+
+Tab:AddTextbox({
+	Name = "Time to tp to middle",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(new)
+		timetotp = tonumber(new)
+	end	  
+})
+
+Tab:AddTextbox({
+	Name = "How much time you would like to take off",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(new)
+		timetoremove = tonumber(new)
+	end	  
+})
+
+
+
+local Section = Tab:AddSection({
+	Name = "Maxland dupe auto"
+})
+
+local N=game:GetService("VirtualInputManager")
+
+
+
+
+Tab:AddButton({
+	Name = "Maxland dupe",
+	Callback = function()
+        print("Loading slot")
+        N:SendKeyEvent(true,"Q",false,game)
+        wait(0.1) -- free land
+        N:SendKeyEvent(true,"T",false,game)
+        wait(0.1) -- loads the base
+        N:SendKeyEvent(true,"P",false,game) -- kicks from game
+        LoadSlot()
+  	end    
+})
+
+
+
+
+
+
+local Section = Tab:AddSection({
+	Name = "Maxland dupe manual"
+})
+
+Tab:AddButton({
+	Name = "Start manual dupe",
+	Callback = function()
+        OrionLib:MakeNotification({
+            Name = "S409HUB",
+            Content = 'Once on the loading screen press "Max land dupe step 2".',
+            Image = "rbxassetid://12576176007",
+            Time = 5
+        })
+        Loadslot()
+  	end    
+})
+
+
+
+Tab:AddButton({
+	Name = "Manual dupe step 2",
+	Callback = function()
+        OrionLib:MakeNotification({
+            Name = "S409HUB",
+            Content = 'Please now load your plot and press Max land dupe step 3".',
+            Image = "rbxassetid://12576176007",
+            Time = 5
+        })
+        FreeLand()
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Manual dupe step 3",
+	Callback = function()
+        wait(timetotp)
+        loadstring(game:GetObjects("rbxassetid://2662507900")[1].Source)()
+  	end    
+})
+
+
+local Section = Tab:AddSection({
+	Name = "Maxland dupe claim tools"
+})
+
+Tab:AddButton({
+	Name = "Select plot",
+	Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/Wj49DUwL"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Load on selected plot",
+	Callback = function()
+        for i,v in next, game:GetService("Workspace").Properties:GetChildren() do
+            if v:FindFirstChild("OriginSquare") then
+                if v.OriginSquare:FindFirstChild("Selection") then
+                game:GetService("ReplicatedStorage").PropertyPurchasing.ClientPurchasedProperty:FireServer(v,v.OriginSquare.Position)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.OriginSquare.CFrame + Vector3.new(0,2,0)
+                break
+            end
+        end
+    end
+end
+})
+
+Tab:AddButton({
+	Name = "Save slot",
+	Callback = function()
+        local result = false
+    repeat
+        wait(1)
+        getgenv().block_save = false
+        local slot_id = game:GetService("Players")["LocalPlayer"]["CurrentSaveSlot"].Value
+        result = game.ReplicatedStorage.LoadSaveRequests.RequestSave:InvokeServer(slot_id, game.Players.LocalPlayer)
+        OrionLib:MakeNotification({
+            Name = "S409HUB",
+            Content = "Slot saved.",
+            Image = "rbxassetid://12576176007",
+            Time = 5
+        })
+        until result
+        getgenv().block_save = true
+  	end    
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OrionLib:Init()
+
+--extra functions---------------------------------------------------------
+
+scr=getsenv(game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.PropertyPurchasingClient);
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+
+
+bind = "q" 
+
+
+
+mouse.KeyDown:connect(function(key)
+if key == bind then
+    repeat wait()until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible;
+    wait(1)
+    wait(0.9)
+    for i,v in next, game:GetService("Workspace").Properties:GetChildren() do
+        if v:FindFirstChild("Owner") and v.Owner.Value == nil then
+        game:GetService("ReplicatedStorage").PropertyPurchasing.ClientPurchasedProperty:FireServer(v,v.OriginSquare.Position)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.OriginSquare.CFrame + Vector3.new(0,2,0)
+        break
+        end
+    end
+end
+end)
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+
+
+bind = "p" 
+
+
+
+mouse.KeyDown:connect(function(key)
+if key == bind then
+    repeat wait()until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible;
+    wait(1)
+    wait(2)
+    task.wait(timetotp - 2)
+    loadstring(game:GetObjects("rbxassetid://2662507900")[1].Source)()
+end
+end)
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+
+
+bind = "t" 
+
+
+
+mouse.KeyDown:connect(function(key)
+if key == bind then
+    repeat wait()until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible;
+    wait(0.3)
+    scr.scrollSelection(-1);
+    wait(0.1)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();
+wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();
+wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();
+wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();
+wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();
+wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();                       
+end
+end)
+
+local Tab = Window:MakeTab({
+	Name = "Gui-Settings",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+Tab:AddColorpicker({
+	Name = "Colorpicker",
+	Default = Color3.fromRGB(255, 0, 0),
+	Callback = function(Value)
+		print(Value)
+	end	  
+})
+
+local Tab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+Tab:AddLabel("Daddy Ripp3r#0001 - owner/coder")
+Tab:AddLabel("kermit the frog#6253 - cool guy")
+Tab:AddLabel("Applebox#0001 - Key System")
+
+Local Tab = Window:MakeTab({
+	Name = "Other Dupes",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Wood",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+function AxeDupe(Slot)
+    if #game.Players.LocalPlayer.Backpack:GetChildren() <= 0 then
+        return
+        Library:Notify("No Axes In inventory")
+    end;
+    
+    local Slot = slotnumber
+    repeat wait() until game.ReplicatedStorage.LoadSaveRequests.ClientMayLoad:InvokeServer(game.Players.LocalPlayer)
+    game.Players.LocalPlayer.Character.Head:Destroy()
+    wait(2.5)
+    dupe_load(Slot)
+    game:GetService("ReplicatedStorage").LoadSaveRequests.RequestLoad:InvokeServer(Slot,game:GetService("Players").LocalPlayer)
+    repeat task.wait() until game:GetService("Players").LocalPlayer.OwnsProperty.Value == true
+    repeat task.wait() until game:GetService("ReplicatedStorage").LoadSaveRequests.ClientMayLoad:InvokeServer(game:GetService("Players").LocalPlayer)
+    wait(0.5)
+  end
+  
+  function CountAllAxes()
+    local count = 0
+    if game.Players.LocalPlayer.Character:FindFirstChild("Tool") ~= nil then
+        if game.Players.LocalPlayer.Character("Tool") then
+            count = count + 1
+        end;
+    end;
+    
+    for i,v in next,game.Players.LocalPlayer.Backpack:GetChildren() do
+        if v:FindFirstChild("AxeClient") then
+            count = count + 1
+        end;
+    end;
+    Library:Notify("U Have "..count.." Axes in Backpack")
+  end;
+
+Tab:AddToggle({
+	Name = "Wood Esp (work in progress)",
+	Default = false,
+	Callback = function(Value)
+
+        OrionLib:MakeNotification({
+            Name = "Wood Esp",
+            Content = "Enabled Wood Esp",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+
+		local UIS = game:GetService("UserInputService")
+local Toggle = false
+
+for i,v in pairs(workspace.PlayerModels:GetChildren()) do
+    if v.Name == "Plank" and v:FindFirstChild("Owner").OwnerString.Value == game.Players.LocalPlayer.Name then
+        local WoodSection = v:FindFirstChild("WoodSection")
+        for i=0,5 do
+            local SurfaceGui = Instance.new("SurfaceGui")
+            local Frame = Instance.new("Frame")
+            SurfaceGui.Face = i
+            SurfaceGui.Enabled = false
+            SurfaceGui.Name = v.TreeClass.Value..i
+            Frame.BorderSizePixel = 0
+            Frame.Size = UDim2.new(1,0,1,0)
+            Frame.BackgroundColor3 = WoodSection.Color
+            SurfaceGui.AlwaysOnTop = true
+            SurfaceGui.LightInfluence = 0
+            SurfaceGui.Parent = WoodSection
+            Frame.Parent = SurfaceGui
+        end
+    end
+end
+
+UIS.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.X then
+        if Toggle == false then
+            for i,v in pairs(workspace.PlayerModels:GetChildren()) do
+                if v.Name == "Plank" then
+                    for i=0,5 do
+                        local TreeClass = v.TreeClass.Value
+                        if v:FindFirstChild("WoodSection")[TreeClass..i] then
+                            v.WoodSection[TreeClass..i].Enabled = true
+                        end
+                    end
+                end
+            end
+            Toggle = true
+        else
+            for i,v in pairs(workspace.PlayerModels:GetChildren()) do
+                if v.Name == "Plank" then
+                    for i=0,5 do
+                        local TreeClass = v.TreeClass.Value
+                        if v:FindFirstChild("WoodSection")[TreeClass..i] then
+                            v.WoodSection[TreeClass..i].Enabled = false
+                        end
+                    end
+                end
+            end
+            Toggle = false
+        end
+    end
+end)
+	end    
+})
+
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+wait(1)
+vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
