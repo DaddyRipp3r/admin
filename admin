@@ -286,7 +286,7 @@ local Tab = Window:MakeTab({
 })
 
 local Section = Tab:AddSection({
-	Name = "Sky options"
+	Name = "World options"
 })
 
 
