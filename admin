@@ -1,15 +1,297 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.2.5) ~  Much Love, Ferib 
+local scriptver = "Admin"
 
-]]--
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Ripp3rs-hub ┃ ".. scriptver, HidePremium = true, SaveConfig = true, ConfigFolder = "Ripp3r", IntroText = "Ripp3rs-Hub", IntroIcon = "https://i.e-z.host/nbo558hv.png"})
 
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v8,v9)local v23={};for v57=1, #v8 do v6(v23,v0(v4(v1(v2(v8,v57,v57 + 1 )),v1(v2(v9,1 + ((v57-1)% #v9) ,1 + ((v57-1)% #v9) + 1 )))%256 ));end return v5(v23);end local v10=v7("\14\160\192\113\235","\79\196\173\24\133");local v11=loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))();local v12=v11:MakeWindow({[v7("\27\82\88\30","\85\51\53\123\26\122")]="Ripp3rs-hub ┃ "   .. v10 ,[v7("\237\207\65\10\19\150\192\203\76\26\46","\165\166\37\111\67\228")]=true,[v7("\11\17\79\30\120\55\30\95\18\92","\88\112\57\123\59")]=true,[v7("\13\6\30\56\170\228\117\33\5\20\59\177","\78\105\112\94\195\131\51")]=v7("\24\44\169\44\35\204","\74\69\217\92\16\190"),[v7("\139\214\18\222\118\150\221\30\216","\194\184\102\172\25")]=v7("\213\19\194\28\180\8\193\65\207\15\208","\135\122\178\108"),[v7("\246\213\215\40\72\12\134\208\213","\191\187\163\90\39\69\229")]="https://i.e-z.host/nbo558hv.png"});local v13=v12:MakeTab({[v7("\27\233\226\17","\85\136\143\116\67\82\73")]=v7("\192\255\7\209\91\2","\144\147\102\168\62\112"),[v7("\40\175\160\175","\97\204\207\193\149\69\154")]="rbxassetid://",[v7("\215\52\79\16\174\171\162\200\40\70\4","\135\70\42\125\199\222\207")]=false});local v14=v13:AddSection({[v7("\51\140\218\215","\125\237\183\178\78\181\217")]=v7("\13\24\114\23\61\238","\93\116\19\110\88\156\82")});v13:AddSlider({[v7("\164\218\211\79","\234\187\190\42")]=v7("\12\214\25\215\11\244\195\249\63","\91\183\117\188\120\132\166\156"),[v7("\245\54\74","\184\95\36\182\180\225\232")]=5 + 11 ,[v7("\92\221\12","\17\188\116\91\85\203\83\78")]=500,[v7("\85\87\247\251\100\94\229","\17\50\145\154")]=2 + 14 ,[v7("\206\244\8\243\34","\141\155\100\156\80\67")]=Color3.fromRGB(0 -0 ,0,0),[v7("\29\207\23\248\91\39\49\207\0","\84\161\116\138\62\74")]=1 + 0 ,[v7("\144\24\80\170\163\55\93\178\163","\198\121\60\223")]="",[v7("\204\11\15\181\114\238\9\8","\143\106\99\217\16")]=function(v15)local v24=231 -(62 + 169) ;local v25;while true do if ((1019 -(821 + 197))==v24) then v25:GetPropertyChangedSignal(v7("\65\38\78\115\115\102\34\71\124","\22\71\34\24\32")):Connect(function()v25.WalkSpeed=_G.WS;end);v25.WalkSpeed=_G.WS;break;end if (v24==(0 -0)) then local v68=0;while true do if (v68==1) then v24=1;break;end if (v68==(0 + 0)) then _G.WS=v15;v25=game:GetService(v7("\226\184\182\91\117\185\247","\178\212\215\34\16\203\132\174")).LocalPlayer.Character.Humanoid;v68=1322 -(838 + 483) ;end end end end end});v13:AddSlider({[v7("\124\4\136\244","\50\101\229\145\188\61")]=v7("\81\20\78\198\107\14\84\211\105","\27\97\35\182"),[v7("\238\168\54","\163\193\88\161\185\207\33\173")]=11 + 39 ,[v7("\25\212\77","\84\181\53\174\219\17\25\164")]=500,[v7("\121\11\40\4\161\16\70","\61\110\78\101\212\124\50")]=50,[v7("\93\49\70\3\194","\30\94\42\108\176\175\94")]=Color3.fromRGB(0,0 -0 ,0 + 0 ),[v7("\210\214\250\187\211\246\221\247\189","\155\184\153\201\182")]=1 + 0 ,[v7("\74\95\60\100\175\82\95\61\116","\28\62\80\17\202")]="",[v7("\33\188\25\129\200\3\190\30","\98\221\117\237\170")]=function(v16)local v26=0 -0 ;local v27;while true do if (v26==1) then v27:GetPropertyChangedSignal(v7("\1\28\83\69\27\6\73\80\57","\75\105\62\53")):Connect(function()v27.JumpPower=_G.JP;end);v27.JumpPower=_G.JP;break;end if (v26==(894 -(887 + 7))) then _G.JP=v16;v27=game:GetService(v7("\98\208\222\92\140\203\106","\50\188\191\37\233\185\25\26")).LocalPlayer.Character.Humanoid;v26=1;end end end});_G[v7("\30\40\21\168\64\221\234\127\41\43\27\191","\106\71\114\207\44\184\164\16")]=function()local v28;v28=game:GetService(v7("\74\40\164\214\118\148\161\113\62\175","\24\93\202\133\19\230\215")).Stepped:connect(function()for v62,v63 in pairs(game.Players.LocalPlayer.Character:GetChildren()) do local v64=300 -(240 + 60) ;local v65;while true do if ((0 -0)==v64) then v65=0 -0 ;while true do if (v65==(779 -(416 + 363))) then if (noclipping==false) then local v121=663 -(362 + 301) ;local v122;while true do if (0==v121) then v122=0 + 0 ;while true do if (0==v122) then v28:Disconnect();return;end end break;end end end if v63:IsA(v7("\117\2\169\68\103\2\168\85","\55\99\218\33")) then v63.CanCollide=false;end break;end end break;end end end end);end;v13:AddToggle({[v7("\155\135\68\47","\213\230\41\74")]=v7("\242\228\2\82\255\204","\188\139\97\62\150"),[v7("\37\113\192\209\217\13\96","\97\20\166\176\172")]=false,[v7("\224\27\249\142\61\194\25\254","\163\122\149\226\95")]=function(v16)if (v16==true) then local v66=0 + 0 ;while true do if ((1687 -(948 + 739))==v66) then noclipping=true;toggleNoClip();break;end end elseif (v16==false) then noclipping=false;toggleNoClip();end end});v13:AddToggle({[v7("\148\113\122\239","\218\16\23\138\39")]=v7("\81\90\86","\23\54\47\113\146\148"),[v7("\97\62\6\162\187\187\169","\37\91\96\195\206\215\221")]=true,[v7("\5\208\200\123\18\39\210\207","\70\177\164\23\112")]=function(v17)local v29=0 + 0 ;local v30;local v31;local v32;local v33;local v34;local v35;local v36;local v37;local v38;local v39;local v40;local v41;local v42;while true do if (v29==3) then v32.TextXAlignment=Enum.TextXAlignment.Left;v32.TextYAlignment=Enum.TextYAlignment.Top;v33=game.Players.LocalPlayer:GetMouse();v34=Vector3.new(1500 -(506 + 994) ,0,0);v29=4 + 0 ;end if (v29==(1 + 0)) then v32.Size=UDim2.new(0 + 0 ,40 -30 ,234 -(180 + 54) ,10);v32.ZIndex=2;v32.Text="0";v32.TextStrokeTransparency=1960.5 -(367 + 1593) ;v29=4 -2 ;end if (v29==7) then game:GetService(v7("\105\153\252\149\216\231\248\158\72\185\252\149\231\224\235\142","\60\234\153\231\145\137\136\235")).InputEnded:connect(function(v79,v80)if (v79.KeyCode==v30.ToggleKey) then KeyHandler(v7("\3\130\133\198\217\50","\87\237\226\161\181"),Enum.UserInputState.End,v79);elseif (v79.KeyCode==v30.ForwardKey) then KeyHandler(v7("\91\113\56\108\255\83\120","\29\30\74\27\158\33\28"),Enum.UserInputState.End,v79);elseif (v79.KeyCode==v30.LeftKey) then KeyHandler(v7("\245\49\13\217","\185\84\107\173\50"),Enum.UserInputState.End,v79);elseif (v79.KeyCode==v30.BackwardKey) then KeyHandler(v7("\107\130\124\68\29\36\225\6","\41\227\31\47\106\69\147\98"),Enum.UserInputState.End,v79);elseif (v79.KeyCode==v30.RightKey) then KeyHandler(v7("\230\187\206\41\196","\180\210\169\65\176"),Enum.UserInputState.End,v79);elseif (v79.KeyCode==v30.UpKey) then KeyHandler(v7("\194\174","\151\222\142\28"),Enum.UserInputState.End,v79);elseif (v79.KeyCode==v30.DownKey) then KeyHandler(v7("\36\86\41\68","\96\57\94\42\37\220\57\139"),Enum.UserInputState.End,v79);elseif (v79.KeyCode==v30.SprintKey) then KeyHandler(v7("\14\21\152\116\4\41","\93\101\234\29\106"),Enum.UserInputState.End,v79);end end);v38.RenderStepped:Connect(function()if (v39 and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild(v7("\89\106\38\5\242\252\18\210\67\112\36\16\204\242\9\194","\17\31\75\100\156\147\123\182"))) then local v109=0 -0 ;local v110;local v111;while true do if (v109==(2 -1)) then while true do if (v110==(1337 -(677 + 658))) then v37=Lerp(v37,v36 * ((v40 and (553 -(321 + 230))) or (3 -2)) ,((v36==(0 + 0)) and (0.2 + 0)) or (0.1 + 0) );v111.CFrame=v111.CFrame:Lerp(CFrame.new(v111.Position,v111.Position + v33.UnitRay.Direction ) * CFrame.Angles(0 + 0 ,math.rad(0 -0 ),0 + 0 ) * CFrame.new(v35) * CFrame.Angles(math.rad(v37),0,0) ,0.2);break;end if (v110==1) then if v42 then local v141=0 + 0 ;while true do if (v141==(427 -(331 + 96))) then v32.Text=math.floor((v42-v111.Position).Magnitude + 0.5 + 0 );if ((v42-v111.Position).Magnitude>=(995 -645)) then v32.TextColor3=Color3.new(1 -0 ,18 -(13 + 5) ,0 + 0 );else v32.TextColor3=Color3.new(1,1 -0 ,1 + 0 );end break;end end else local v142=615 -(369 + 246) ;while true do if (v142==0) then v32.TextColor3=Color3.new(1,1 + 0 ,1);v32.Text=0;break;end end end v35=v35:Lerp(v34 * ((v40 and v30.SprintSpeed) or v30.Speed) ,0.2);v110=103 -(62 + 39) ;end if (v110==(0 -0)) then for v138,v139 in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do if v139:IsA(v7("\243\25\194\206\10\194\195\12","\177\120\177\171\90\163")) then v139.Velocity=Vector3.new(0,0 -0 ,0 -0 );end end v111=game.Players.LocalPlayer.Character.HumanoidRootPart;v110=1;end end break;end if (v109==(0 -0)) then v110=0 -0 ;v111=nil;v109=2000 -(987 + 1012) ;end end else local v112=593 -(394 + 199) ;while true do if (v112==(513 -(364 + 149))) then v32.TextColor3=Color3.new(1,1 + 0 ,1603 -(776 + 826) );v32.Text=0;break;end end end end);break;end if (v29==0) then v30={[v7("\134\59\209\119\220","\213\75\180\18\184\166")]=5,[v7("\132\189\197\20\117\81\249\167\168\210\25","\215\205\183\125\27\37\170")]=869 -(395 + 444) ,[v7("\135\163\22\32\191\182\135\20\62","\211\204\113\71\211")]=Enum.KeyCode.P,[v7("\65\104\17\229\51\60\3\119\97","\18\24\99\140\93\72\72")]=Enum.KeyCode.LeftControl,[v7("\130\30\3\253\3\236\246\143\20\8","\196\113\113\138\98\158\146")]=Enum.KeyCode.W,[v7("\88\188\129\105\14\113\160","\20\217\231\29\69")]=Enum.KeyCode.A,[v7("\149\215\18\30\211\62\200\179\253\20\12","\215\182\113\117\164\95\186")]=Enum.KeyCode.S,[v7("\55\185\164\122\17\155\166\107","\101\208\195\18")]=Enum.KeyCode.D,[v7("\252\224\207\194\208","\169\144\132\167")]=Enum.KeyCode.E,[v7("\42\244\185\204\161\134\23","\110\155\206\162\234\227")]=Enum.KeyCode.Q};v31=Instance.new(v7("\248\3\171\75\117\197\39\172\71","\171\96\217\46\16"),game.CoreGui);v32=Instance.new(v7("\233\93\15\88\241\89\21\73\209","\189\56\119\44"),v31);v32.BackgroundTransparency=4 -3 ;v29=1;end if (v29==6) then _G[v7("\60\213\104\157","\112\176\26\237\110")]=function(v82,v83,v84)return v82 + ((v83-v82) * v84) ;end;v42=nil;_G[v7("\102\199\111\33\19\204\73\206\115\27","\45\162\22\105\114\162")]=function(v85,v86)if (true and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild(v7("\27\240\22\78\34\60\236\31\125\35\60\241\43\78\62\39","\83\133\123\47\76"))) then if ((v85==v7("\234\65\180\31\64\7","\190\46\211\120\44\98")) and (v86==Enum.UserInputState.Begin)) then v39= not v39;if v39 then v42=game.Players.LocalPlayer.Character.HumanoidRootPart.Position;game.Players.LocalPlayer.Character.Humanoid.PlatformStand=true;else local v126=0;while true do if (v126==(0 + 0)) then v42=nil;game.Players.LocalPlayer.Character.Humanoid.PlatformStand=false;break;end end end elseif (v85==v7("\44\248\147\84\193\159\129","\106\151\225\35\160\237\229")) then local v127=0 + 0 ;while true do if (v127==(0 + 0)) then v36=((v86==Enum.UserInputState.Begin) and  -(11 + 9)) or (1979 -(872 + 1107)) ;v34=Vector3.new(v34.x,v34.y,((v86==Enum.UserInputState.Begin) and  -1) or (1830 -(1330 + 500)) );break;end end elseif (v85==v7("\112\255\23\198","\60\154\113\178\86\218\229")) then v34=Vector3.new(((v86==Enum.UserInputState.Begin) and  -(1884 -(1085 + 798))) or (0 + 0) ,v34.y,v34.z);elseif (v85==v7("\146\132\47\225\29\217\237\211","\208\229\76\138\106\184\159\183")) then local v143=0 + 0 ;local v144;while true do if (v143==(0 + 0)) then v144=0 + 0 ;while true do if (v144==0) then v36=((v86==Enum.UserInputState.Begin) and (343 -(221 + 102))) or 0 ;v34=Vector3.new(v34.x,v34.y,((v86==Enum.UserInputState.Begin) and 1) or (0 + 0) );break;end end break;end end elseif (v85==v7("\209\224\61\186\23","\131\137\90\210\99\68\132")) then v34=Vector3.new(((v86==Enum.UserInputState.Begin) and (1786 -(120 + 1665))) or 0 ,v34.y,v34.z);elseif (v85==v7("\252\110","\169\30\105\26\91\56\44\218")) then v34=Vector3.new(v34.x,((v86==Enum.UserInputState.Begin) and 1) or (1973 -(1330 + 643)) ,v34.z);elseif (v85==v7("\104\179\36\1","\44\220\83\111\18\76")) then v34=Vector3.new(v34.x,((v86==Enum.UserInputState.Begin) and  -(1 + 0)) or (1977 -(1506 + 471)) ,v34.z);elseif (v85==v7("\187\223\62\194\29\156","\232\175\76\171\115")) then v40=v86==Enum.UserInputState.Begin ;end end end;game:GetService(v7("\232\49\55\243\211\211\50\39\245\201\216\48\36\232\249\216","\189\66\82\129\154")).InputBegan:connect(function(v87,v88)if (v87.KeyCode==v30.ToggleKey) then KeyHandler(v7("\202\112\225\176\242\122","\158\31\134\215"),Enum.UserInputState.Begin,v87);elseif (v87.KeyCode==v30.ForwardKey) then KeyHandler(v7("\133\201\77\180\223\64\167","\195\166\63\195\190\50"),Enum.UserInputState.Begin,v87);elseif (v87.KeyCode==v30.LeftKey) then KeyHandler(v7("\62\202\17\47","\114\175\119\91\21\98"),Enum.UserInputState.Begin,v87);elseif (v87.KeyCode==v30.BackwardKey) then KeyHandler(v7("\22\140\130\121\144\164\185\48","\84\237\225\18\231\197\203"),Enum.UserInputState.Begin,v87);elseif (v87.KeyCode==v30.RightKey) then KeyHandler(v7("\136\204\90\204\174","\218\165\61\164"),Enum.UserInputState.Begin,v87);elseif (v87.KeyCode==v30.UpKey) then KeyHandler(v7("\203\107","\158\27\144\154\230\75"),Enum.UserInputState.Begin,v87);elseif (v87.KeyCode==v30.DownKey) then KeyHandler(v7("\58\68\49\32","\126\43\70\78\177\176"),Enum.UserInputState.Begin,v87);elseif (v87.KeyCode==v30.SprintKey) then KeyHandler(v7("\254\181\144\11\195\177","\173\197\226\98"),Enum.UserInputState.Begin,v87);end end);v29=7;end if (v29==5) then v39=false;v40=false;v41=game.Workspace.CurrentCamera.CFrame.Position;pcall(function()game.Players.LocalPlayer.DevCameraOcclusionMode=Enum.DevCameraOcclusionMode.Invisicam;end);v29=1939 -(171 + 1762) ;end if (v29==2) then v32.TextSize=40 -20 ;v32.TextStrokeColor3=Color3.fromRGB(33,94 -61 ,1449 -(830 + 586) );v32.Font=Enum.Font.Gotham;v32.TextColor3=Color3.new(1736 -(129 + 1606) ,2 -1 ,1 + 0 );v29=3 + 0 ;end if (v29==(1709 -(64 + 1641))) then v35=v34;v36=844 -(61 + 783) ;v37=v36;v38=game:GetService(v7("\60\44\204\24\9\246\24\48\193\46","\110\89\162\75\108\132"));v29=3 + 2 ;end end end});v13:AddSlider({[v7("\140\240\24\224","\194\145\117\133\175\186\175")]=v7("\133\120\58","\195\55\108\117"),[v7("\238\65\192","\163\40\174\222\91\18")]=10,[v7("\254\19\242","\179\114\138\29\17\59\58\188")]=18 + 122 ,[v7("\38\131\34\220\253\127\253","\98\230\68\189\136\19\137\22")]=70,[v7("\137\31\79\67\76","\202\112\35\44\62\158\211")]=Color3.fromRGB(0,0 + 0 ,0 -0 ),[v7("\13\95\203\93\134\63\1\42\69","\68\49\168\47\227\82\100")]=1 -0 ,[v7("\76\52\49\19\175\206\123\56\56","\26\85\93\102\202\128")]="",[v7("\119\219\216\64\4\85\217\223","\52\186\180\44\102")]=function(v15)game.Workspace.Camera.FieldOfView=v15;end});v13:AddButton({[v7("\158\54\20\51","\208\87\121\86")]=v7("\15\165\167\54\41\224\146\28\11","\93\192\212\83"),[v7("\101\176\12\3\15\200\220\187","\38\209\96\111\109\169\191\208")]=function()game.Workspace.Camera.FieldOfView=70;end});local v13=v12:MakeTab({[v7("\252\23\202\197","\178\118\167\160")]=v7("\5\10\64\73\6","\82\101\50\37\98"),[v7("\39\243\116\194","\110\144\27\172\51\46\123\232")]="rbxassetid://",[v7("\142\91\26\95\184\55\179\102\17\94\168","\222\41\127\50\209\66")]=false});local v14=v13:AddSection({[v7("\223\178\132\123","\145\211\233\30\21\164")]=v7("\132\25\157\11\238\91\206\190\29\138\88","\215\114\228\43\129\43\186")});loadstring('[[
+local Tab = Window:MakeTab({
+    Name = "Player",
+    Icon = "rbxassetid://",
+    PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+    Name = "Player"
+})
+
+Tab:AddSlider({
+    Name = "Walkspeed",
+    Min = 16,
+    Max = 500,
+    Default = 16,
+    Color = Color3.fromRGB(0,0,0),
+    Increment = 1,
+    ValueName = "",
+    Callback = function(new)
+        _G.WS = new;
+    local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+    Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+        Humanoid.WalkSpeed = _G.WS;
+    end)
+    Humanoid.WalkSpeed = _G.WS;
+    end    
+})
+
+
+Tab:AddSlider({
+    Name = "Jumppower",
+    Min = 50,
+    Max = 500,
+    Default = 50,
+    Color = Color3.fromRGB(0,0,0),
+    Increment = 1,
+    ValueName = "",
+    Callback = function(value)
+        _G.JP = value
+        local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid
+        Humanoid:GetPropertyChangedSignal("JumpPower"):Connect(function()
+        Humanoid.JumpPower = _G.JP
+        end)
+        Humanoid.JumpPower = _G.JP
+    end    
+})
+
+
+
+
+function toggleNoClip()
+    local disableCollide 
+    disableCollide = game:GetService("RunService").Stepped:connect(function()
+    for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+    if noclipping == false then
+    disableCollide:Disconnect()
+    return
+    end
+    if v:IsA("BasePart") then
+    v.CanCollide = false
+    end
+    end
+    end)
+    end
+
+
+
+Tab:AddToggle({
+    Name = "Noclip",
+    Default = false,
+    Callback = function(value)
+        if value == true then
+            noclipping = true
+            toggleNoClip()
+            elseif value == false then
+            noclipping = false
+            toggleNoClip()
+            end
+end})
+
+
+Tab:AddToggle({
+	Name = "Fly",
+	Default = true,
+	Callback = function(Value)
+		local Settings = {
+	
+            Speed = 5,
+            SprintSpeed = 30,
+            ToggleKey = Enum.KeyCode.P,
+            SprintKey = Enum.KeyCode.LeftControl,
+            
+            ForwardKey = Enum.KeyCode.W,
+            LeftKey = Enum.KeyCode.A,
+            BackwardKey = Enum.KeyCode.S,
+            RightKey = Enum.KeyCode.D,
+            UpKey = Enum.KeyCode.E,
+            DownKey = Enum.KeyCode.Q,
+            
+        }
+        
+        local Screen = Instance.new("ScreenGui",game.CoreGui)
+        local Distance = Instance.new("TextLabel",Screen)
+        Distance.BackgroundTransparency = 1
+        Distance.Size = UDim2.new(0,10,0,10)
+        Distance.ZIndex = 2
+        Distance.Text = "0"
+        Distance.TextStrokeTransparency = .5
+        Distance.TextSize = 20
+        Distance.TextStrokeColor3 = Color3.fromRGB(33, 33, 33)
+        Distance.Font = Enum.Font.Gotham
+        Distance.TextColor3 = Color3.new(1,1,1)
+        Distance.TextXAlignment = Enum.TextXAlignment.Left
+        Distance.TextYAlignment = Enum.TextYAlignment.Top
+        
+        
+        local Mouse = game.Players.LocalPlayer:GetMouse()
+        local Direction = Vector3.new(0,0,0)
+        local InterpolatedDir = Direction
+        local Tilt = 0
+        local InterpolatedTilt = Tilt
+        local RunService = game:GetService("RunService")
+        local Toggled = false
+        local Sprinting = false
+        local CameraPos = game.Workspace.CurrentCamera.CFrame.Position
+        
+        pcall(function()
+            game.Players.LocalPlayer.DevCameraOcclusionMode = Enum.DevCameraOcclusionMode.Invisicam	
+        end)
+        
+        function Lerp(a, b, t)
+            return a + (b - a) * t
+        end
+        
+        local LastPos = nil
+        
+        function KeyHandler(actionName, userInputState)
+            if true and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                if actionName == "Toggle" and userInputState == Enum.UserInputState.Begin then
+                    Toggled = not Toggled
+                    if Toggled then
+                        LastPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+                        --game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+                        game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true 
+                    else
+                        LastPos = nil
+                        game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+                        --game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+                    end
+                elseif actionName == "Forward" then
+                    Tilt = userInputState == Enum.UserInputState.Begin and -20 or 0
+                    Direction = Vector3.new(Direction.x,Direction.y,userInputState == Enum.UserInputState.Begin and -1 or 0)
+                elseif actionName == "Left" then
+                    Direction = Vector3.new(userInputState == Enum.UserInputState.Begin and -1 or 0,Direction.y,Direction.z)
+                elseif actionName == "Backward" then
+                    Tilt = userInputState == Enum.UserInputState.Begin and 20 or 0
+                    Direction = Vector3.new(Direction.x,Direction.y,userInputState == Enum.UserInputState.Begin and 1 or 0)
+                elseif actionName == "Right" then
+                    Direction = Vector3.new(userInputState == Enum.UserInputState.Begin and 1 or 0,Direction.y,Direction.z)
+                elseif actionName == "Up" then
+                    Direction = Vector3.new(Direction.x,userInputState == Enum.UserInputState.Begin and 1 or 0,Direction.z)
+                elseif actionName == "Down" then
+                    Direction = Vector3.new(Direction.x,userInputState == Enum.UserInputState.Begin and -1 or 0,Direction.z)
+                elseif actionName == "Sprint" then
+                    Sprinting = userInputState == Enum.UserInputState.Begin
+                end
+            end
+        end
+        
+        
+        
+        game:GetService("UserInputService").InputBegan:connect(function(inputObject, gameProcessedEvent)
+            
+            if inputObject.KeyCode == Settings.ToggleKey then
+                KeyHandler("Toggle", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.ForwardKey then
+                KeyHandler("Forward", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.LeftKey then
+                KeyHandler("Left", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.BackwardKey then
+                KeyHandler("Backward", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.RightKey then
+                KeyHandler("Right", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.UpKey then	
+                KeyHandler("Up", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.DownKey then
+                KeyHandler("Down", Enum.UserInputState.Begin, inputObject)
+            elseif inputObject.KeyCode == Settings.SprintKey then
+                KeyHandler("Sprint", Enum.UserInputState.Begin, inputObject)
+            end
+            
+            
+        end)
+        
+        
+        game:GetService("UserInputService").InputEnded:connect(function(inputObject, gameProcessedEvent)
+            
+            if inputObject.KeyCode == Settings.ToggleKey then
+                KeyHandler("Toggle", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.ForwardKey then
+                KeyHandler("Forward", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.LeftKey then
+                KeyHandler("Left", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.BackwardKey then
+                KeyHandler("Backward", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.RightKey then
+                KeyHandler("Right", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.UpKey then	
+                KeyHandler("Up", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.DownKey then
+                KeyHandler("Down", Enum.UserInputState.End, inputObject)
+            elseif inputObject.KeyCode == Settings.SprintKey then
+                KeyHandler("Sprint", Enum.UserInputState.End, inputObject)
+            end
+            
+            
+        end)
+        
+        
+        RunService.RenderStepped:Connect(function()
+            if Toggled and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")  then
+                for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                    if v:IsA("BasePart") then
+                        v.Velocity = Vector3.new(0,0,0)
+                    end
+                end
+                local RootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+                if LastPos then
+                    Distance.Text = math.floor((LastPos-RootPart.Position).Magnitude+.5)
+                    if (LastPos-RootPart.Position).Magnitude >= 350 then
+                        Distance.TextColor3 = Color3.new(1,0,0)
+                    else
+                        Distance.TextColor3 = Color3.new(1,1,1)	
+                    end
+                else
+                    Distance.TextColor3 = Color3.new(1,1,1)
+                    Distance.Text = 0
+                end
+                InterpolatedDir = InterpolatedDir:Lerp((Direction * (Sprinting and Settings.SprintSpeed or Settings.Speed)),.2)
+                InterpolatedTilt = Lerp(InterpolatedTilt ,Tilt* (Sprinting and 2 or 1),Tilt == 0 and .2 or .1)
+                RootPart.CFrame = RootPart.CFrame:Lerp(CFrame.new(RootPart.Position,RootPart.Position + Mouse.UnitRay.Direction) * CFrame.Angles(0,math.rad(00),0) * CFrame.new(InterpolatedDir)  * CFrame.Angles(math.rad(InterpolatedTilt),0,0),.2)
+            else
+                Distance.TextColor3 = Color3.new(1,1,1)
+                Distance.Text = 0
+            end	
+        end)
+	end    
+})
+
+
+
+        
+
+
+Tab:AddSlider({
+    Name = "FOV",
+    Min = 10,
+    Max = 140,
+    Default = 70,
+    Color = Color3.fromRGB(0,0,0),
+    Increment = 1,
+    ValueName = "",
+    Callback = function(new)
+        game.Workspace.Camera.FieldOfView = new
+    end    
+})
+
+
+Tab:AddButton({
+	Name = "Reset FOV",
+	Callback = function()
+        game.Workspace.Camera.FieldOfView = 70
+  	end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "World",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Sky options"
+})
+
+
+
+loadstring([[
 function FreeLand()
     for a,b in pairs(workspace.Properties:GetChildren()) do 
         if b:FindFirstChild("Owner") and b:FindFirstChild("OriginSquare") and b.Owner.Value == nil then 
@@ -27,4 +309,460 @@ function FreeLand()
       end
       end
       end
-]]')();_G[v7("\195\205\239\82\220\206\225\66","\143\162\142\54")]=function()local v45=0 + 0 ;local v46;local v47;local v48;while true do if (v45==0) then v46=0 -0 ;v47=nil;v45=1;end if (v45==(3 -2)) then v48=nil;while true do if (v46==(1 + 0)) then while true do if ((0 + 0)==v47) then v48=game.ReplicatedStorage.LoadSaveRequests.ClientMayLoad:InvokeServer(player);if v48 then game.ReplicatedStorage.LoadSaveRequests.RequestLoad:InvokeServer(Slot,player);end break;end end break;end if (v46==0) then v47=0 + 0 ;v48=nil;v46=1;end end break;end end end;local v13=v12:MakeTab({[v7("\240\79\232\47","\190\46\133\74\112\127\170")]=v7("\193\57\211\213","\133\76\163\176\142"),[v7("\53\17\183\131","\124\114\216\237\77\217")]="rbxassetid://",[v7("\208\17\231\250\233\22\239\216\238\15\251","\128\99\130\151")]=false});local v14=v13:AddSection({[v7("\117\201\134\114","\59\168\235\23\231\24\76\178")]=v7("\254\195\201\37\100\75\1\190\222\194\193","\183\173\175\74\22\38\96\202")});v13:AddSlider({[v7("\90\242\187\204","\20\147\214\169\69\178\119")]=v7("\134\70\165\241","\213\42\202\133\146\101"),[v7("\89\37\66","\20\76\44\117\163\224\91")]=508 -(375 + 133) ,[v7("\39\133\60","\106\228\68\69\25\180")]=15 -9 ,[v7("\132\19\93\187\81\172\2","\192\118\59\218\36")]=0 -0 ,[v7("\45\173\242\170\110","\110\194\158\197\28\92")]=Color3.fromRGB(0 + 0 ,0 + 0 ,1687 -(832 + 855) ),[v7("\44\25\214\38\200\29\0\25\193","\101\119\181\84\173\112")]=312 -(207 + 104) ,[v7("\78\241\119\73\1\34\186\93\125","\24\144\27\60\100\108\219\48")]="",[v7("\202\121\52\13\22\168\170\24","\137\24\88\97\116\201\201\115")]=function(v15)Slot=tonumber(v15);end});v13:AddTextbox({[v7("\115\73\61\7","\61\40\80\98\62\108\49")]=v7("\181\222\215\197\193\195\213\128\149\199\154\212\142\151\215\201\133\211\214\197","\225\183\186\160"),[v7("\160\67\177\187\48\11\144","\228\38\215\218\69\103")]="",[v7("\255\68\64\54\234\112\196\202\81\72\39\207\107","\171\33\56\66\174\25\183")]=false,[v7("\138\163\235\134\224\171\170\169","\201\194\135\234\130\202")]=function(v15)timetotp=tonumber(v15);end});v13:AddTextbox({[v7("\174\42\202\198","\224\75\167\163\165\150")]=v7("\135\163\166\100\162\185\178\44\239\184\184\41\170\236\168\43\186\236\166\43\186\160\181\100\163\165\186\33\239\184\190\100\187\173\186\33\239\163\183\34","\207\204\209\68"),[v7("\147\160\43\29\211\134\163","\215\197\77\124\166\234")]="",[v7("\96\210\216\226\33\127\71\214\208\230\0\119\70","\52\183\160\150\101\22")]=false,[v7("\207\12\70\200\238\12\73\207","\140\109\42\164")]=function(v15)timetoremove=tonumber(v15);end});local v14=v13:AddSection({[v7("\123\44\21\20","\53\77\120\113")]=v7("\254\66\107\207\130\242\63\147\71\102\211\134\188\58\198\87\124","\179\35\19\163\227\156\91")});local v18=game:GetService(v7("\206\173\162\160\40\252\244\193\246\180\165\160\16\252\246\233\255\161\162","\152\196\208\212\93\157\152\136"));v13:AddButton({[v7("\137\137\233\203","\199\232\132\174\72")]=v7("\25\83\148\91\241\137\213\151\48\71\156\82","\84\50\236\55\144\231\177\183"),[v7("\243\46\236\72\210\46\227\79","\176\79\128\36")]=function()local v49=0 + 0 ;while true do if (v49==(0 + 0)) then print(v7("\57\226\195\51\202\239\18\173\209\59\204\245","\117\141\162\87\163\129"));v18:SendKeyEvent(true,"Q",false,game);v49=1;end if (v49==3) then LoadSlot();break;end if (v49==(1 + 0)) then wait(0.1 -0 );v18:SendKeyEvent(true,"T",false,game);v49=1031 -(379 + 650) ;end if (v49==(2 -0)) then wait(0.1);v18:SendKeyEvent(true,"P",false,game);v49=377 -(119 + 255) ;end end end});local v14=v13:AddSection({[v7("\38\82\247\219","\104\51\154\190")]=v7("\56\14\104\47\115\27\11\48\39\103\5\10\48\46\115\27\26\113\47","\117\111\16\67\18")});v13:AddButton({[v7("\114\206\181\225","\60\175\216\132\176\191\96\136")]=v7("\35\76\10\80\90\55\191\17\86\30\67\66\55\182\5\72\14","\112\56\107\34\46\23\210"),[v7("\161\76\63\28\203\195\22\137","\226\45\83\112\169\162\117")]=function()local v50=0 + 0 ;while true do if (v50==(0 + 0)) then v11:MakeNotification({[v7("\246\74\180\44","\184\43\217\73")]=v7("\216\111\66\164\49\222\25","\139\91\114\157\121"),[v7("\152\73\93\240\215\181\82","\219\38\51\132\178")]='Once on the loading screen press "Max land dupe step 2".',[v7("\80\15\85\209\182","\25\98\52\182\211\138\70")]="rbxassetid://12576176007",[v7("\228\27\79\94","\176\114\34\59\42\67\148")]=310 -(242 + 63) });Loadslot();break;end end end});v13:AddButton({[v7("\2\85\90\252","\76\52\55\153\104\26")]=v7("\24\80\71\92\247\218\117\85\92\89\243\150\38\69\76\89\182\132","\85\49\41\41\150\182"),[v7("\135\196\88\250\206\165\198\95","\196\165\52\150\172")]=function()v11:MakeNotification({[v7("\162\78\68\194","\236\47\41\167\211\160")]=v7("\51\84\174\36\225\74\208","\96\96\158\29\169\31\146\106"),[v7("\155\90\244\24\189\91\238","\216\53\154\108")]='Please now load your plot and press Max land dupe step 3".',[v7("\245\90\77\22\217","\188\55\44\113")]="rbxassetid://12576176007",[v7("\24\141\94\196","\76\228\51\161")]=17 -12 });FreeLand();end});v13:AddButton({[v7("\137\197\201\76","\199\164\164\41\120\51")]=v7("\8\174\214\64\91\41\239\220\64\74\32\239\203\65\95\53\239\139","\69\207\184\53\58"),[v7("\201\27\233\34\128\124\233\17","\138\122\133\78\226\29")]=function()wait(timetotp);loadstring(game:GetObjects("rbxassetid://2662507900")[1].Source)();end});local v14=v13:AddSection({[v7("\18\199\189\254","\92\166\208\155\227")]=v7("\158\33\248\55\86\234\142\70\183\53\240\62\23\231\134\7\186\45\160\47\88\235\134\21","\211\64\128\91\55\132\234\102")});v13:AddButton({[v7("\167\32\227\199","\233\65\142\162\156")]=v7("\66\130\58\72\216\164\183\97\139\57\89","\17\231\86\45\187\208\151"),[v7("\125\183\114\211\182\51\161\85","\62\214\30\191\212\82\194")]=function()loadstring(game:HttpGet("https://pastebin.com/raw/Wj49DUwL"))();end});v13:AddButton({[v7("\97\91\168\133","\47\58\197\224\106\141\123")]=v7("\98\136\121\203\84\138\64\199\107\202\24\128\77\147\125\203\84\149\66\136\108","\46\231\24\175\116\229"),[v7("\126\163\56\21\57\32\208\183","\61\194\84\121\91\65\179\220")]=function()for v58,v59 in next,game:GetService(v7("\41\27\99\202\166\92\237\161\27","\126\116\17\161\213\44\140\194")).Properties:GetChildren() do if v59:FindFirstChild(v7("\15\7\63\217\41\27\5\207\53\20\36\219","\64\117\86\190")) then if v59.OriginSquare:FindFirstChild(v7("\228\209\168\33\173\195\221\171\42","\183\180\196\68\206")) then game:GetService(v7("\10\36\15\174\86\204\46\44\36\27\145\75\192\61\57\38\26","\88\65\127\194\63\175\79")).PropertyPurchasing.ClientPurchasedProperty:FireServer(v59,v59.OriginSquare.Position);game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=v59.OriginSquare.CFrame + Vector3.new(1975 -(1773 + 202) ,5 -3 ,1205 -(201 + 1004) ) ;break;end end end end});v13:AddButton({[v7("\134\30\191\196","\200\127\210\161\156")]=v7("\199\182\26\226\5\231\187\3\243","\148\215\108\135\37"),[v7("\103\92\239\254\20\236\89\79","\36\61\131\146\118\141\58")]=function()local v51=false;repeat local v60=0 -0 ;local v61;while true do if (v60==(0 + 0)) then wait(4 -3 );getgenv().block_save=false;v60=1 + 0 ;end if (v60==(1 -0)) then v61=game:GetService(v7("\202\125\129\21\204\232\98","\154\17\224\108\169"))[v7("\150\241\222\55\182\206\209\55\163\251\207","\218\158\189\86")][v7("\163\175\149\44\231\142\174\180\63\244\133\137\139\49\246","\224\218\231\94\130")].Value;v51=game.ReplicatedStorage.LoadSaveRequests.RequestSave:InvokeServer(v61,game.Players.LocalPlayer);v60=7 -5 ;end if (v60==2) then v11:MakeNotification({[v7("\36\29\187\230","\106\124\214\131\207\191\195\32")]=v7("\242\152\17\92\233\249\99","\161\172\33\101"),[v7("\45\92\59\111\42\117\26","\110\51\85\27\79\27")]=v7("\30\27\43\39\227\183\183\253\40\19\106","\77\119\68\83\195\196\214\139"),[v7("\100\179\77\88\184","\45\222\44\63\221\234")]="rbxassetid://12576176007",[v7("\70\16\183\93","\18\121\218\56")]=1708 -(336 + 1367) });break;end end until v51 getgenv().block_save=true;end});v11:Init();scr=getsenv(game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.PropertyPurchasingClient);local v19=game.Players.LocalPlayer;local v20=v19:GetMouse();bind="q";v20.KeyDown:connect(function(v21)if (v21==bind) then repeat wait();until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible wait(2 -1 );wait(0.9 -0 );for v95,v96 in next,game:GetService(v7("\239\253\160\218\232\200\243\177\212","\184\146\210\177\155")).Properties:GetChildren() do if (v96:FindFirstChild(v7("\236\58\5\119\39","\163\77\107\18\85\103")) and (v96.Owner.Value==nil)) then game:GetService(v7("\207\88\50\1\175\254\92\54\8\162\206\73\45\31\167\250\88","\157\61\66\109\198")).PropertyPurchasing.ClientPurchasedProperty:FireServer(v96,v96.OriginSquare.Position);game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=v96.OriginSquare.CFrame + Vector3.new(0,1897 -(1794 + 101) ,0 + 0 ) ;break;end end end end);local v19=game.Players.LocalPlayer;local v20=v19:GetMouse();bind="p";v20.KeyDown:connect(function(v21)if (v21==bind) then repeat wait();until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible wait(1 + 0 );wait(1073 -(209 + 862) );task.wait(timetotp-2 );loadstring(game:GetObjects("rbxassetid://2662507900")[2 -1 ].Source)();end end);local v19=game.Players.LocalPlayer;local v20=v19:GetMouse();bind="t";v20.KeyDown:connect(function(v21)if (v21==bind) then repeat wait();until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible wait(0.3 -0 );scr.scrollSelection( -1);wait(1151.1 -(373 + 778) );scr.selectionMade();wait(0.3 -0 );scr.selectionMade();wait(146 -(76 + 69) );scr.scrollSelection( -(821 -(530 + 290)));wait(451.3 -(374 + 77) );scr.selectionMade();wait(0.3 -0 );scr.selectionMade();wait(2 -1 );scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(1246.3 -(50 + 1196) );scr.selectionMade();wait(1);scr.scrollSelection( -(758 -(505 + 252)));wait(0.3 + 0 );scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(0.3);scr.selectionMade();wait(0.3 + 0 );scr.selectionMade();wait(1 -0 );scr.scrollSelection( -1);wait(1651.3 -(1194 + 457) );scr.selectionMade();wait(0.3 + 0 );scr.selectionMade();wait(824 -(592 + 231) );scr.scrollSelection( -(1 -0));wait(1084.3 -(235 + 849) );scr.selectionMade();wait(0.3 + 0 );scr.selectionMade();wait(1);scr.scrollSelection( -(1 + 0));wait(628.3 -(243 + 385) );scr.selectionMade();wait(0.3 -0 );scr.selectionMade();wait(1 + 0 );scr.scrollSelection( -(1 + 0));wait(0.3 + 0 );scr.selectionMade();wait(0.3 -0 );scr.selectionMade();wait(3 -2 );scr.scrollSelection( -1);wait(0.3 -0 );scr.selectionMade();wait(0.3 + 0 );scr.selectionMade();wait(1);scr.scrollSelection( -(4 -3));wait(0.3 -0 );scr.selectionMade();wait(0.3 -0 );scr.selectionMade();wait(1 + 0 );scr.scrollSelection( -(1 + 0));wait(0.3 + 0 );scr.selectionMade();wait(0.3);scr.selectionMade();wait(1);scr.scrollSelection( -1);wait(1986.3 -(1105 + 881) );scr.selectionMade();wait(0.3);scr.selectionMade();wait(1 + 0 );scr.scrollSelection( -(2 -1));wait(0.3 -0 );scr.selectionMade();wait(0.3 + 0 );scr.selectionMade();wait(1);scr.scrollSelection( -(1 -0));wait(0.3 + 0 );scr.selectionMade();wait(0.3 + 0 );scr.selectionMade();wait(1);scr.scrollSelection( -(1173 -(582 + 590)));wait(0.3 -0 );scr.selectionMade();wait(1765.3 -(610 + 1155) );scr.selectionMade();wait(1);scr.scrollSelection( -(1 + 0));wait(0.3 + 0 );scr.selectionMade();wait(0.3);scr.selectionMade();end end);local v13=v12:MakeTab({[v7("\40\139\160\211","\102\234\205\182\228\45\181")]=v7("\227\51\249\147\155\142\156\208\47\254\217\187","\164\70\144\190\200\235\232"),[v7("\10\197\130\3","\67\166\237\109\102\28\138\158")]="rbxassetid://",[v7("\25\147\200\239\32\148\192\205\39\141\212","\73\225\173\130")]=false});v13:AddColorpicker({[v7("\168\212\163\237","\230\181\206\136")]=v7("\46\130\120\174\22\69\4\142\127\164\22","\109\237\20\193\100\53"),[v7("\109\63\67\73\47\69\46","\41\90\37\40\90")]=Color3.fromRGB(696 -441 ,0 -0 ,0),[v7("\217\5\184\187\29\251\7\191","\154\100\212\215\127")]=function(v17)print(v17);end});local v13=v12:MakeTab({[v7("\110\237\193\3","\32\140\172\102\190\218\74\31")]=v7("\62\224\31\84\40\216\235","\125\146\122\48\65\172\152\58"),[v7("\249\164\64\126","\176\199\47\16\201")]="rbxassetid://",[v7("\234\203\51\200\67\207\212\25\203\70\195","\186\185\86\165\42")]=false});v13:AddLabel("Daddy Ripp3r#0001 - owner/coder");v13:AddLabel(v7("\190\209\186\168\188\192\232\177\189\209\232\163\167\219\175\230\227\134\253\246\245\153\232\166\186\219\164\229\178\193\177","\213\180\200\197"));v13:AddLabel(v7("\87\83\232\59\27\116\76\224\116\78\38\19\169\119\83\54\104\253\46\94\69\90\235\35\27\123","\22\35\152\87\126"));local v13=v12:MakeTab({[v7("\228\206\66\210","\170\175\47\183\102\175")]=v7("\18\71\87\125","\69\40\56\25\227\215\88\234"),[v7("\142\83\166\93","\199\48\201\51\236\89\208\126")]="rbxassetid://",[v7("\198\64\129\214\71\146\60\217\92\136\194","\150\50\228\187\46\231\81")]=false});v13:AddToggle({[v7("\122\220\50\21","\52\189\95\112\40\102")]=v7("\14\116\227\161\98\194\40\215\121\51\251\170\48\236\123\206\55\59\252\183\45\224\41\194\42\104\165","\89\27\140\197\66\135\91\167"),[v7("\59\197\1\73\10\204\19","\127\160\103\40")]=false,[v7("\124\140\128\55\12\70\164\231","\63\237\236\91\110\39\199\140")]=function(v17)local v53=0 + 0 ;local v54;local v55;while true do if (v53==(1668 -(1620 + 46))) then v54.InputBegan:Connect(function(v97)if (v97.KeyCode==Enum.KeyCode.X) then if (v55==false) then for v119,v120 in pairs(workspace.PlayerModels:GetChildren()) do if (v120.Name==v7("\55\168\125\213\37","\103\196\28\187\78\169")) then for v135=0,23 -18  do local v136=0 + 0 ;local v137;while true do if (v136==0) then v137=v120.TreeClass.Value;if v120:FindFirstChild(v7("\35\138\218\119\39\128\214\103\29\138\219","\116\229\181\19"))[v137   .. v135 ] then v120.WoodSection[v137   .. v135 ].Enabled=true;end break;end end end end end v55=true;else local v115=0 -0 ;local v116;while true do if (v115==(0 + 0)) then v116=0;while true do if (v116==(1969 -(755 + 1214))) then for v147,v148 in pairs(workspace.PlayerModels:GetChildren()) do if (v148.Name==v7("\250\73\4\95\209","\170\37\101\49\186\171\91\223")) then for v164=0 + 0 ,141 -(73 + 63)  do local v165=0 -0 ;local v166;while true do if (v165==(0 -0)) then v166=v148.TreeClass.Value;if v148:FindFirstChild(v7("\10\226\164\0\14\232\168\16\52\226\165","\93\141\203\100"))[v166   .. v164 ] then v148.WoodSection[v166   .. v164 ].Enabled=false;end break;end end end end end v55=false;break;end end break;end end end end end);break;end if (v53==(1646 -(508 + 1137))) then v55=false;for v104,v105 in pairs(workspace.PlayerModels:GetChildren()) do if ((v105.Name==v7("\112\191\92\45\27","\32\211\61\67\112\100\213")) and (v105:FindFirstChild(v7("\81\176\2\91\219","\30\199\108\62\169")).OwnerString.Value==game.Players.LocalPlayer.Name)) then local v113=0 + 0 ;local v114;while true do if ((462 -(344 + 118))==v113) then v114=v105:FindFirstChild(v7("\136\167\9\114\140\173\5\98\182\167\8","\223\200\102\22"));for v128=0 -0 ,1 + 4  do local v129=0 + 0 ;local v130;local v131;local v132;while true do if (v129==1) then v132=nil;while true do if (v130==(3 + 0)) then v131.LightInfluence=397 -(349 + 48) ;v131.Parent=v114;v132.Parent=v131;break;end if (v130==(7 -5)) then v132.Size=UDim2.new(3 -2 ,0 -0 ,1562 -(26 + 1535) ,1506 -(1423 + 83) );v132.BackgroundColor3=v114.Color;v131.AlwaysOnTop=true;v130=126 -(13 + 110) ;end if (v130==(935 -(337 + 598))) then v131=Instance.new(v7("\138\59\77\44\44\229\242\158\59\86","\217\78\63\74\77\134\151"));v132=Instance.new(v7("\206\201\238\126\197","\136\187\143\19\160"));v131.Face=v128;v130=2 -1 ;end if (v130==(2 -1)) then v131.Enabled=false;v131.Name=v105.TreeClass.Value   .. v128 ;v132.BorderSizePixel=0 + 0 ;v130=1555 -(6 + 1547) ;end end break;end if (v129==0) then v130=105 -(52 + 53) ;v131=nil;v129=1639 -(300 + 1338) ;end end end break;end end end end v53=1318 -(959 + 357) ;end if (v53==(0 + 0)) then v11:MakeNotification({[v7("\117\130\241\134","\59\227\156\227\67\27\169\79")]=v7("\67\244\180\233\193\81\232\171","\20\155\219\141\225"),[v7("\140\136\58\15\131\216\187","\207\231\84\123\230\182")]=v7("\248\8\113\39\241\35\217\70\71\42\242\34\157\35\99\53","\189\102\16\69\157\70"),[v7("\224\253\164\190\32","\169\144\197\217\69\51\124\217")]="rbxassetid://4483345998",[v7("\242\204\120\142","\166\165\21\235")]=7 -2 });v54=game:GetService(v7("\197\199\206\203\61\225\255\229\192\248\220\6\249\230\243\209","\144\180\171\185\116\143\143"));v53=1;end end end});local v22=game:GetService(v7("\76\64\159\226\171\123\69\184\229\187\104","\26\41\237\150\222"));game:GetService(v7("\140\137\178\102\222\51\251","\220\229\211\31\187\65\136\99")).LocalPlayer.Idled:connect(function()local v56=1469 -(378 + 1091) ;while true do if (v56==(0 -0)) then v22:Button2Down(Vector2.new(0 + 0 ,0 -0 ),workspace.CurrentCamera.CFrame);wait(1);v56=1;end if ((1 + 0)==v56) then v22:Button2Up(Vector2.new(984 -(135 + 849) ,0),workspace.CurrentCamera.CFrame);break;end end end);
+]])();
+
+
+function LoadSlot()
+    local LoadSlot = game.ReplicatedStorage.LoadSaveRequests.ClientMayLoad:InvokeServer(player)
+        if LoadSlot then
+            game.ReplicatedStorage.LoadSaveRequests.RequestLoad:InvokeServer(Slot, player)
+        end
+    end
+    
+
+
+
+local Tab = Window:MakeTab({
+	Name = "Dupe",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Information"
+})
+
+
+Tab:AddSlider({
+	Name = "Slot",
+	Min = 0,
+	Max = 6,
+	Default = 0,
+	Color = Color3.fromRGB(0,0,0),
+	Increment = 1,
+	ValueName = "",
+	Callback = function(new)
+		Slot = tonumber(new)
+	end    
+})
+
+
+Tab:AddTextbox({
+	Name = "Time to tp to middle",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(new)
+		timetotp = tonumber(new)
+	end	  
+})
+
+Tab:AddTextbox({
+	Name = "How much time you would like to take off",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(new)
+		timetoremove = tonumber(new)
+	end	  
+})
+
+
+
+local Section = Tab:AddSection({
+	Name = "Maxland dupe auto"
+})
+
+local N=game:GetService("VirtualInputManager")
+
+
+
+
+Tab:AddButton({
+	Name = "Maxland dupe",
+	Callback = function()
+        print("Loading slot")
+        N:SendKeyEvent(true,"Q",false,game)
+        wait(0.1) -- free land
+        N:SendKeyEvent(true,"T",false,game)
+        wait(0.1) -- loads the base
+        N:SendKeyEvent(true,"P",false,game) -- kicks from game
+        LoadSlot()
+  	end    
+})
+
+
+
+
+
+
+local Section = Tab:AddSection({
+	Name = "Maxland dupe manual"
+})
+
+Tab:AddButton({
+	Name = "Start manual dupe",
+	Callback = function()
+        OrionLib:MakeNotification({
+            Name = "S409HUB",
+            Content = 'Once on the loading screen press "Max land dupe step 2".',
+            Image = "rbxassetid://12576176007",
+            Time = 5
+        })
+        Loadslot()
+  	end    
+})
+
+
+
+Tab:AddButton({
+	Name = "Manual dupe step 2",
+	Callback = function()
+        OrionLib:MakeNotification({
+            Name = "S409HUB",
+            Content = 'Please now load your plot and press Max land dupe step 3".',
+            Image = "rbxassetid://12576176007",
+            Time = 5
+        })
+        FreeLand()
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "Manual dupe step 3",
+	Callback = function()
+        wait(timetotp)
+        loadstring(game:GetObjects("rbxassetid://2662507900")[1].Source)()
+  	end    
+})
+
+
+local Section = Tab:AddSection({
+	Name = "Maxland dupe claim tools"
+})
+
+Tab:AddButton({
+	Name = "Select plot",
+	Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/Wj49DUwL"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Load on selected plot",
+	Callback = function()
+        for i,v in next, game:GetService("Workspace").Properties:GetChildren() do
+            if v:FindFirstChild("OriginSquare") then
+                if v.OriginSquare:FindFirstChild("Selection") then
+                game:GetService("ReplicatedStorage").PropertyPurchasing.ClientPurchasedProperty:FireServer(v,v.OriginSquare.Position)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.OriginSquare.CFrame + Vector3.new(0,2,0)
+                break
+            end
+        end
+    end
+end
+})
+
+Tab:AddButton({
+	Name = "Save slot",
+	Callback = function()
+        local result = false
+    repeat
+        wait(1)
+        getgenv().block_save = false
+        local slot_id = game:GetService("Players")["LocalPlayer"]["CurrentSaveSlot"].Value
+        result = game.ReplicatedStorage.LoadSaveRequests.RequestSave:InvokeServer(slot_id, game.Players.LocalPlayer)
+        OrionLib:MakeNotification({
+            Name = "S409HUB",
+            Content = "Slot saved.",
+            Image = "rbxassetid://12576176007",
+            Time = 5
+        })
+        until result
+        getgenv().block_save = true
+  	end    
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OrionLib:Init()
+
+--extra functions---------------------------------------------------------
+
+scr=getsenv(game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.PropertyPurchasingClient);
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+
+
+bind = "q" 
+
+
+
+mouse.KeyDown:connect(function(key)
+if key == bind then
+    repeat wait()until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible;
+    wait(1)
+    wait(0.9)
+    for i,v in next, game:GetService("Workspace").Properties:GetChildren() do
+        if v:FindFirstChild("Owner") and v.Owner.Value == nil then
+        game:GetService("ReplicatedStorage").PropertyPurchasing.ClientPurchasedProperty:FireServer(v,v.OriginSquare.Position)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.OriginSquare.CFrame + Vector3.new(0,2,0)
+        break
+        end
+    end
+end
+end)
+
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+
+
+bind = "p" 
+
+
+
+mouse.KeyDown:connect(function(key)
+if key == bind then
+    repeat wait()until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible;
+    wait(1)
+    wait(2)
+    task.wait(timetotp - 2)
+    loadstring(game:GetObjects("rbxassetid://2662507900")[1].Source)()
+end
+end)
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+
+
+bind = "t" 
+
+
+
+mouse.KeyDown:connect(function(key)
+if key == bind then
+    repeat wait()until game.Players.LocalPlayer.PlayerGui.PropertyPurchasingGUI.SelectPurchase.Visible;
+    wait(0.3)
+    scr.scrollSelection(-1);
+    wait(0.1)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+    scr.scrollSelection(-1);
+    wait(0.3)
+    scr.selectionMade();
+    wait(0.3)
+    scr.selectionMade();
+    wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();
+wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();
+wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();
+wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();
+wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();
+wait(1)
+scr.scrollSelection(-1);
+wait(0.3)
+scr.selectionMade();
+wait(0.3)
+scr.selectionMade();                       
+end
+end)
+
+local Tab = Window:MakeTab({
+	Name = "Gui-Settings",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+Tab:AddColorpicker({
+	Name = "Colorpicker",
+	Default = Color3.fromRGB(255, 0, 0),
+	Callback = function(Value)
+		print(Value)
+	end	  
+})
+
+local Tab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+Tab:AddLabel("Daddy Ripp3r#0001 - owner/coder")
+Tab:AddLabel("kermit the frog#6253 - cool guy")
+Tab:AddLabel("Applebox#0001 - Key System")
+
+local Tab = Window:MakeTab({
+	Name = "Wood",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "Wood Esp (work in progress)",
+	Default = false,
+	Callback = function(Value)
+
+        OrionLib:MakeNotification({
+            Name = "Wood Esp",
+            Content = "Enabled Wood Esp",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+
+		local UIS = game:GetService("UserInputService")
+local Toggle = false
+
+for i,v in pairs(workspace.PlayerModels:GetChildren()) do
+    if v.Name == "Plank" and v:FindFirstChild("Owner").OwnerString.Value == game.Players.LocalPlayer.Name then
+        local WoodSection = v:FindFirstChild("WoodSection")
+        for i=0,5 do
+            local SurfaceGui = Instance.new("SurfaceGui")
+            local Frame = Instance.new("Frame")
+            SurfaceGui.Face = i
+            SurfaceGui.Enabled = false
+            SurfaceGui.Name = v.TreeClass.Value..i
+            Frame.BorderSizePixel = 0
+            Frame.Size = UDim2.new(1,0,1,0)
+            Frame.BackgroundColor3 = WoodSection.Color
+            SurfaceGui.AlwaysOnTop = true
+            SurfaceGui.LightInfluence = 0
+            SurfaceGui.Parent = WoodSection
+            Frame.Parent = SurfaceGui
+        end
+    end
+end
+
+UIS.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.X then
+        if Toggle == false then
+            for i,v in pairs(workspace.PlayerModels:GetChildren()) do
+                if v.Name == "Plank" then
+                    for i=0,5 do
+                        local TreeClass = v.TreeClass.Value
+                        if v:FindFirstChild("WoodSection")[TreeClass..i] then
+                            v.WoodSection[TreeClass..i].Enabled = true
+                        end
+                    end
+                end
+            end
+            Toggle = true
+        else
+            for i,v in pairs(workspace.PlayerModels:GetChildren()) do
+                if v.Name == "Plank" then
+                    for i=0,5 do
+                        local TreeClass = v.TreeClass.Value
+                        if v:FindFirstChild("WoodSection")[TreeClass..i] then
+                            v.WoodSection[TreeClass..i].Enabled = false
+                        end
+                    end
+                end
+            end
+            Toggle = false
+        end
+    end
+end)
+	end    
+})
+
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+wait(1)
+vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
